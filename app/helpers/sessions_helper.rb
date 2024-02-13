@@ -26,12 +26,19 @@ module SessionsHelper
         # Current_user is an instance variable
         # The next line just says this but more succinctly -
         # @current_user = @current_user || User.find_by(id: session[:user_id]):
-        @current_user||= User.find_by(id: session[:user_id])
+        @current_user ||= User.find_by(id: session[:user_id])
         # ^That either finds the current user in the DB or finds based on session ID of the cookie in their browser
     end
 
     #returns true if user is logged in, false if not.
     def logged_in?
         !current_user.nil?
-end
+    end
+
+    #Logs out the current user.
+    def log_out
+        reset_session
+        session.delete(:user_id)
+        @current_user = nil
+    end
 end

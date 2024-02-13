@@ -22,5 +22,6 @@ end
                                      password_confirmation: "password"}
     end
     assert_template 'users/new'
+    assert is_logged_in?
   end
 end
