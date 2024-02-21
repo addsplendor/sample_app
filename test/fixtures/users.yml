@@ -5,5 +5,22 @@ michael:
 
 addie:
   name: Addie M
-  email: addymongelli@gmail.com
+  email: addymongelli@example.com
   password_digest: <%= User.digest('password') %>
+
+emily:
+  name: Emily Johns
+  email: emrajohns@example.com
+  password_digest: <%= User.digest('password') %>
+
+mikehull:
+  name: Michael Canerossi
+  email: fuhgetaboutit@example.com
+  password_digest: <%= User.digest('password') %>
+
+  <% 30.times do |n| %>
+  user_<%= n %>:
+    name: <%= "User #{n}" %>
+    email: <%= "User-#{n}@example.com" %>
+    password_digest: <%= User.digest('password') %>
+  <% end %>
