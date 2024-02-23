@@ -8,7 +8,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "should be valid" do
     assert @user.valid?
-end
+  end
 
 test "name should be present" do
   @user.name = " "
@@ -33,6 +33,7 @@ end
     @user.email = valid_address
     assert @user.valid?
   end
+end
 
   test "email validation should reject invalid addresses" do
   invalid_addresses = %w[user@example.com user_at_foo.org user.name@example.
@@ -41,6 +42,7 @@ end
   invalid_addresses.each do |invalid_address|
   @user.email = invalid_address
   assert_not @user.valid?
+  end
 end
 
 test "email address should be unique" do
@@ -51,11 +53,11 @@ test "email address should be unique" do
 end
 
 test "password should have a minimum length" do
-  @user.password = @user.password_confirmation = "a" * 5
-  = "a" * 5 
+  @user.password = @user.password_confirmation = "a" * 5 = "a" * 5 
   assert_not @user.valid?
 end
 
 test "authenticated? should return false for a user with a nil digest" do
-  assert_not @user.authenticated?('')
+  assert_not @user.authenticated?(:remember, '')
+end
 end
