@@ -1,0 +1,44 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+apple:
+  content: "I just ate a poison apple!"
+  created_at: <%= 10.minutes.ago %>
+
+unsolicited_manifesto:
+  content: "Check out my @blog site by @randomguy: https://cnn.com"
+  created_at: <%= 3.years.ago %>
+
+beagle_video:
+  content: "Beagle puppies are so cute when they learn to howl."
+  created_at: <%= 2.hours.ago %>
+
+most_recent:
+  content: "Writing a little test."
+  created_at: <%= Time.zone.now %>
+
+<% 30.times do |n| %>
+  micropost_<%= n %>:
+    content: <%= Faker::Lorem.sentence(5) %>
+    created_at: <%= 42.days.ago %>
+    user: michael
+  <% end %>
+
+ants:
+  content: "Oh, is that what you want? Because that's how you get ants!"
+  created_at: <%= 2.years.ago %>
+  user: addie
+
+zone:
+  content: "Danger zone!"
+  created_at: <%= 3.days.ago %>
+  user: emily
+
+tone:
+  content: "I'm sorry. Your words made sense, but your sarcastic tone did not."
+  created_at: <%= 10.minutes.ago %>
+  user: mikehull
+
+van:
+  content: "Dude, this van's, like, rolling probable cause."
+  created_at: <%= 4.hours.ago %>
+  user: michael
