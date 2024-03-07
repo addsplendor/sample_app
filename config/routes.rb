@@ -12,13 +12,17 @@ Rails.application.routes.draw do
   get    'login'   =>   'sessions#new'
   post   'login'   =>   'sessions#create'
   delete 'logout'  =>   'sessions#destroy'
-  
+
   # resources :users basically just makes these for you
   # get    'users/:id' =>  'users#show'
   # post   'users/'    =>  'users#create'
   # put    'users/:id' =>  'users#update'
   # delete 'users/:id' =>  'users#destroy'
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]

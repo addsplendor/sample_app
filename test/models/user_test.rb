@@ -20,7 +20,6 @@ test "name should not be too long" do
   assert_not @user.valid?
 end
 
-
 test "email should be present" do
   @user.email = "a" * 256
   assert_not @user.valid?
@@ -59,5 +58,24 @@ end
 
 test "authenticated? should return false for a user with a nil digest" do
   assert_not @user.authenticated?(:remember, '')
+end
+
+test "associated microposts should be destroyed" do
+  @user.save
+  @user.microposts.create!(content: "Lorem ipsum")
+  assert_difference 'Micropost.count', -1 do
+    @user.destroy
+  end
+end
+
+test "should follow and unfollow a user" do
+  michael = users(:michael)
+  addie = users(:addie)
+  assert_not michael.following?(addie)
+  michael.follow(addie)
+  assert michael.following?(addie)
+  assert archer.follows.include?
+  michael.unfollow(addie)
+  assert_not michael.following?(addie)
 end
 end

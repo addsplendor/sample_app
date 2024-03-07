@@ -21,6 +21,9 @@ module SampleApp
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+
+    config.load_defaults 7.0
+    config.active_storage.variant_processor = :mini_magick
     
   end
 end

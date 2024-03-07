@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 apple:
-  content: "I just ate a poison apple!"
+  content: "I just ate a poisoned apple!"
   created_at: <%= 10.minutes.ago %>
 
 unsolicited_manifesto:
