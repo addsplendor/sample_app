@@ -79,3 +79,21 @@ test "should follow and unfollow a user" do
   assert_not michael.following?(addie)
 end
 end
+
+test "feed should have the right posts" do
+  michael = users(:michael)
+  addie = users(:addie)
+  emily = users(:emily)
+  # Posts from followed user
+  emily.microposts.each do |post_following|
+    assert michael.feed.include?(post_following)
+  end
+  # Posts from self
+  michael.microposts.each do |post_self|
+    assert michael.feed.include?(post_self)
+  # Posts from unfollowed user
+    archer.micrposts.each do |post_followed|
+      assert_note michael.feed.include?(post_unfollowed)
+    end
+  end
+end

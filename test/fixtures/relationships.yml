@@ -7,3 +7,11 @@ one:
 two:
   follower_id: 1
   followed_id: 1
+
+three:
+  follower: emily
+  followed: michael
+
+four:
+  follower: addie
+  followed: michael
